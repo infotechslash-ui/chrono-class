@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Chrono Class Design System — Academic Navy + Teal Accent */
+    --background: 0.97 0.004 220;
+    --foreground: 0.14 0.02 240;
+
+    --card: 1 0 0;
+    --card-foreground: 0.14 0.02 240;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.14 0.02 240;
+
+    --primary: 0.22 0.04 255;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.93 0.01 220;
+    --secondary-foreground: 0.22 0.04 255;
+
+    --muted: 0.94 0.008 220;
+    --muted-foreground: 0.46 0.02 240;
+
+    --accent: 0.62 0.18 196;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.012 220;
+    --input: 0.88 0.012 220;
+    --ring: 0.62 0.18 196;
+
+    --chart-1: 0.62 0.18 196;
+    --chart-2: 0.56 0.22 265;
+    --chart-3: 0.7 0.16 150;
+    --chart-4: 0.72 0.19 55;
+    --chart-5: 0.65 0.22 25;
+
+    /* Sidebar — dark navy */
+    --sidebar: 0.15 0.05 252;
+    --sidebar-foreground: 0.92 0.02 220;
+    --sidebar-primary: 0.62 0.18 196;
+    --sidebar-primary-foreground: 0.15 0.05 252;
+    --sidebar-accent: 0.22 0.06 252;
+    --sidebar-accent-foreground: 0.92 0.02 220;
+    --sidebar-border: 0.25 0.04 252;
+    --sidebar-ring: 0.62 0.18 196;
+
+    /* Chrono custom tokens */
+    --teal: 0.62 0.18 196;
+    --navy: 0.15 0.05 252;
+    --navy-light: 0.22 0.06 252;
+  }
+
+  .dark {
+    --background: 0.12 0.03 252;
+    --foreground: 0.93 0.02 220;
+
+    --card: 0.16 0.04 252;
+    --card-foreground: 0.93 0.02 220;
+
+    --popover: 0.18 0.04 252;
+    --popover-foreground: 0.93 0.02 220;
+
+    --primary: 0.62 0.18 196;
+    --primary-foreground: 0.12 0.03 252;
+
+    --secondary: 0.22 0.05 252;
+    --secondary-foreground: 0.93 0.02 220;
+
+    --muted: 0.22 0.05 252;
+    --muted-foreground: 0.6 0.02 220;
+
+    --accent: 0.62 0.18 196;
+    --accent-foreground: 0.12 0.03 252;
+
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.62 0.18 196;
+
+    --sidebar: 0.10 0.04 252;
+    --sidebar-foreground: 0.92 0.02 220;
+    --sidebar-primary: 0.62 0.18 196;
+    --sidebar-primary-foreground: 0.12 0.03 252;
+    --sidebar-accent: 0.18 0.05 252;
+    --sidebar-accent-foreground: 0.92 0.02 220;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.62 0.18 196;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-weight: 700;
+  }
+}
+
+/* Print styles for timetable export */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background: white !important;
+  }
+  .timetable-print {
+    page-break-inside: avoid;
+  }
+}
+
+@layer utilities {
+  .print-only {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .text-teal {
+    color: oklch(var(--teal));
+  }
+
+  .bg-teal {
+    background-color: oklch(var(--teal));
+  }
+
+  .bg-navy {
+    background-color: oklch(var(--navy));
+  }
+
+  .border-teal {
+    border-color: oklch(var(--teal));
+  }
+}
